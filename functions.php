@@ -152,3 +152,19 @@ add_action( 'shutdown', function() {
    while ( @ob_end_flush() );
 } );
 
+/**
+ * Custom shortcode to display the Simple Yearly Archive
+ *
+ * @return string
+ */
+function custom_SimpleYearly_Archive() {
+	// Get the selected category from the URL
+	$selected_cat = isset($_GET['category']) ? $_GET['category'] : '';
+
+	if ( $selected_cat ) {
+		return do_shortcode('[SimpleYearlyArchive include="' . intval($selected_cat) . '"]');
+	} else {
+		return do_shortcode('[SimpleYearlyArchive]');
+	}
+}
+add_shortcode('custom_yearly_archive', 'custom_SimpleYearly_Archive');
