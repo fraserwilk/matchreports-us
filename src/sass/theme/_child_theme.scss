@@ -1,43 +1,40 @@
-:where(:root),
-:host {
-    #main-nav {
-        min-height: 8rem;
-    }
+#main-nav {
+    min-height: 8rem;
+}
 
-    .navbar-brand, .navbar-brand > a {
-        color: $white;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 3rem;
-        font-weight: 700;
-    }
+.navbar-brand, .navbar-brand > a {
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 700;
+}
 
-    h1 a {
-    --wa-link-decoration-default: none;
+h1 a {
+--wa-link-decoration-default: none;
+--wa-link-decoration-hover: underline;
+}
+
+article a {
+    --wa-link-decoration-default: underline color-mix(in oklab, var(--wa-color-text-link) 70%, transparent) solid;
     --wa-link-decoration-hover: underline;
-    }
+}
 
-    article a {
-        --wa-link-decoration-default: underline color-mix(in oklab, var(--wa-color-text-link) 70%, transparent) solid;
-        --wa-link-decoration-hover: underline;
-    }
+.card-img-top {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
 
-    article img {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        object-position: center;
-    }
+ul#main-menu .nav-link {
+    color: $white;
+    text-transform: uppercase;
+    font-size: larger;
+    font-weight: 700;
+}
 
-    ul#main-menu .nav-link {
-        color: $white;
-        text-transform: uppercase;
-        font-size: larger;
-        font-weight: 700;
-    }
-
-    .site-footer {
-        display: flex;
-        justify-content: center;
-    }
+.site-footer {
+    display: flex;
+    justify-content: center;
 }

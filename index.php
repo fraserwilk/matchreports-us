@@ -23,28 +23,32 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<div class="row">
 
-			<main class="site-main wa-grid wa-gap-l" id="main">
-
+			<main class="col-md-7 me-md-auto site-main" id="main">
+				
 				<?php
-				if ( have_posts() ) {
-					// Start the Loop.
-					while ( have_posts() ) {
-						the_post();
-						get_template_part( 'loop-templates/content', 'home' );
-					}
-				} else {
-					get_template_part( 'loop-templates/content', 'none' );
-				}
-				?>
+				if ( have_posts() ) : ?>
+				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+					<?php while ( have_posts() ) : the_post(); ?>
+						<div class="col">
+							<?php get_template_part( 'loop-templates/content', 'home' ); ?>
+						</div>
+					
+					<?php endwhile; ?>
+				</div>
+				
+				<?php else : ?>
+					<?php get_template_part( 'loop-templates/content', 'none' ); ?>
+				<?php endif; ?>
 
+				<?php understrap_pagination(); ?>
+					
 			</main>
 
+			
 			<?php
-			// Display the pagination component.
-			understrap_pagination();
-
+			get_template_part( 'sidebar-templates/sidebar', 'right' );
 			?>
-
+			
 		</div><!-- .row -->
 
 	</div><!-- #content -->

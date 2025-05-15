@@ -14095,32 +14095,29 @@ a.skip-link:not(:focus):not(:focus-within) {
   display: block;
 }
 
-:where(:root) #main-nav,
-:host #main-nav {
+#main-nav {
   min-height: 8rem;
 }
-:where(:root) .navbar-brand, :where(:root) .navbar-brand > a,
-:host .navbar-brand,
-:host .navbar-brand > a {
+
+.navbar-brand, .navbar-brand > a {
   color: hsl(0deg, 0%, 100%);
   text-decoration: none;
   text-transform: uppercase;
   font-size: 3rem;
   font-weight: 700;
 }
-:where(:root) h1 a, :where(:root) .h1 a,
-:host h1 a,
-:host .h1 a {
+
+h1 a, .h1 a {
   --wa-link-decoration-default: none;
   --wa-link-decoration-hover: underline;
 }
-:where(:root) article a,
-:host article a {
+
+article a {
   --wa-link-decoration-default: underline color-mix(in oklab, var(--wa-color-text-link) 70%, transparent) solid;
   --wa-link-decoration-hover: underline;
 }
-:where(:root) article img,
-:host article img {
+
+.card-img-top {
   width: 120px;
   height: 120px;
   -o-object-fit: cover;
@@ -14128,15 +14125,15 @@ a.skip-link:not(:focus):not(:focus-within) {
   -o-object-position: center;
   object-position: center;
 }
-:where(:root) ul#main-menu .nav-link,
-:host ul#main-menu .nav-link {
+
+ul#main-menu .nav-link {
   color: hsl(0deg, 0%, 100%);
   text-transform: uppercase;
   font-size: larger;
   font-weight: 700;
 }
-:where(:root) .site-footer,
-:host .site-footer {
+
+.site-footer {
   display: flex;
   justify-content: center;
 }

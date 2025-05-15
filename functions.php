@@ -94,17 +94,14 @@ function understrap_child_customize_controls_js() {
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
 
 
-if ( ! function_exists( 'web_awesome_addcdn' ) ) {
-	/**
-	 * Add Web Awesome links to the head
-	 */
+/* if ( ! function_exists( 'web_awesome_addcdn' ) ) {
 	function web_awesome_addcdn() {
 		echo '<link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/styles/themes/active.css" />' . "\n";
 		echo '<link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/styles/webawesome.css" />' . "\n";
 		echo '<script type="module" src="https://early.webawesome.com/webawesome@3.0.0-alpha.12/dist/webawesome.loader.js"></script>' . "\n";
 	}
 }
-add_action( 'wp_head', 'web_awesome_addcdn' );
+add_action( 'wp_head', 'web_awesome_addcdn' ); */
 
 if ( ! function_exists( 'understrap_posted_on' ) ) {
 	/**
@@ -143,3 +140,15 @@ if ( ! function_exists( 'understrap_posted_on' ) ) {
 		echo $posted_on; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
+
+/**
+ * Proper ob_end_flush() for all levels
+ *
+ * This replaces the WordPress `wp_ob_end_flush_all()` function
+ * with a replacement that doesn't cause PHP notices.
+ */
+remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
+add_action( 'shutdown', function() {
+   while ( @ob_end_flush() );
+} );
+
